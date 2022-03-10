@@ -7,12 +7,14 @@ const btn = document.querySelector('#btn');
 const ul = document.querySelector('ul');
 let doc;
 const list = new TodoTemplate(ul);
+let values;
+values = [taskname.value, description.value, date.value];
 btn.addEventListener('click', () => {
     console.log({
         "task": taskname.value,
         "Description": description.value,
         "Date": date.value
     });
-    doc = new Task(taskname.value, description.value, date.value);
+    doc = new Task(...values);
     list.render(doc, taskname.value, 'end');
 });
