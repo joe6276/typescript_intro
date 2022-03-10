@@ -14,6 +14,9 @@ let doc:TaskFormatter
 const list= new TodoTemplate(ul)
 
 
+let values:[string, string,string]
+values=[taskname.value,description.value,date.value]
+
 btn.addEventListener('click', ()=>{
    
     console.log({
@@ -22,7 +25,7 @@ btn.addEventListener('click', ()=>{
         "Date": date.value
     })
 
-    doc= new Task(taskname.value,description.value,date.value)
+    doc= new Task(...values)
     list.render(doc, taskname.value, 'end')
 
 })
